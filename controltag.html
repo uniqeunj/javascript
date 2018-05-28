@@ -6,38 +6,39 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <script>
-    /nightDayHandler라는 함수 시작 / 
-    function nightDayHandler(self){
-    // 
-    var target = document.querySelector('body');
-    if (self.value ==='night'){
-    target.style.backgroundColor = 'black';
-    target.style.color = 'white';
-    self.value = 'day';
-    
+  function LinksSetColor (color){
     var alist =
     document.querySelectorAll('a');
     var i = 0;
     while(i<alist.length){
-      alist[i].style.color='powderblue';
+      alist[i].style.color=color;
       i=i+1;
     } 
   }
+    function BodySetColor(color){
+     document.querySelector('body').style.color = color;
+    }
+    function BodySetBackgroundColor(color){
+    document.querySelector('body').style.backgroundColor = color;
+    }
+    function nightDayHandler(self){
+    var target = document.querySelector('body');
+    if (self.value ==='night'){
+    Body.SetBackgroundColor('black');
+    Body.SetColor('white');
+    self.value = 'day';
+    
+    LinksSetColor('powderblue');
+    } 
     else 
     {
-    target.style.backgroundColor = 'white';
-    target.style.color = 'black';
+    Body.SetBackgroundColor('white');
+    Body.SetColor('black');
     self.value = 'night';
     
-    var alist =
-    document.querySelectorAll('a');
-    var i = 0;
-    while(i<alist.length){
-      alist[i].style.color='blue';
-      i=i+1;
+    LinksSetColor('blue');
     }
   }
-}
 </script>
 </head>
 <body>
